@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Shopping Cart</h1>
+    <form method="POST" action="/order">
+        <table>
+            <tr>
+                <td>Customer name:</td>
+                <td><input type="text" name="name"/></td>
+            </tr>
+            <tr>
+                <td>Address:</td>
+                <td><input type="text" name="address"/></td>
+            </tr>
+            <tr>
+                <td>Comments:</td>
+                <td><input type="text" name="comments"/></td>
+            </tr>
+            <tr>
+                <td>Product:</td>
+                <td><input type="text" name="product"/></td>
+            </tr>
+            <tr>
+                <td>Quantity:</td>
+                <td><input type="number" name="quantity" min="1" value="1"/></td>
+            </tr>
+            <tr>
+                <td>Tax:</td>
+                <td><input type="number" name="tax" min="0.00" step="0.01" value="0.05"/></td>
+            </tr>
+            <tr>
+                <td>Price:</td>
+                <td><input type="number" name="price" /></td>
+            </tr>
+            <tr>
+                <td>Discount:</td>
+                <td><input type="number" name="discount" value="1"/></td>
+            </tr>
+
+            <tr>
+                <td>Date:</td>
+                <td><input type="date" name="date" /></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td><button type="submit">Add</button></td>
+            </tr>
+        </table>
+    </form>
+
+
+
+    <h2>Contents</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Description</th>
+                <th>unit Price</th>
+                <th>Discount</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-th-each="li: ${orderDetailsList}">
+                <td><span data-th-text="${li.product}"></span></td>
+                <td><span data-th-text="${li.unitPrice}"></span></td>
+                <td><span data-th-text="${li.discount}"></span></td>
+                <td><span data-th-text="${li.quantity}"></span></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">
+                    <form method="POST" action="/checkout">
+                        <button type="submit">Checkout</button>
+                    </form>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+
+
+
+</body>
+</html>

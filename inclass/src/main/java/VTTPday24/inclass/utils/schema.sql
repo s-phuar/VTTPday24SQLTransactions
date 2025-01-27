@@ -19,3 +19,6 @@ create table line_item(
     primary key(item_id),
     constraint fk_order_id foreign key (order_id) references purchase_order(order_id)
 );
+
+
+ select * from line_item;

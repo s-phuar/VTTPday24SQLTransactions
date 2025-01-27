@@ -19,6 +19,8 @@ insert into orders (order_date, customer_name, ship_address, notes, tax) values 
 insert into orders (order_date, customer_name, ship_address, notes) values ('2025-01-23', 'Samuel', '25 Ship Lane', 'do not be late');
 
 select * from orders;
+describe orders;
+select * from order_details;
 -- delete from orders where order_id=4;
 
 create table order_details(
